@@ -1,0 +1,56 @@
+body h1{text-align: center;
+  padding-top: 20px;
+  padding-bottom: 50px;}
+
+body h1:after{content:' ';
+  display:block;
+  border:2px solid grey;
+  } 
+  
+/* remove default margin and padding from body */
+body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Adding styles to the aside and filter form */
+  input[type=text] {
+    width: 100%;
+  }
+  
+  input[type=checkbox] {
+    transform: scale(1);
+  }
+  
+  input[type=radio] {
+    transform: scale(1);
+  }
+  
+  .button {
+    text-align: center;
+  }
+  
+  #form {
+    width: 50%;
+    text-align: center;
+  }
+  
+  .buttonHolder{ text-align: center; }
+  
+  /* set map, body, and html to 100% of the screen size */
+  #map,
+  body,
+  html {
+    height: 500px;
+    width: 100%;
+  }
+  
+  #map{
+    margin-top:10;
+    margin-left:10;
+    margin-top:10;
+    margin-right:10;
+    padding:10;
+  }
+  
+  

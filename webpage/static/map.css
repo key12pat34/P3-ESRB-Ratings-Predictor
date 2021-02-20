@@ -1,0 +1,71 @@
+body h1{text-align: center;
+  padding-top: 20px;
+  padding-bottom: 50px;}
+
+body h1:after{content:' ';
+  display:block;
+  border:2px solid grey;
+  } 
+  
+/* remove default margin and padding from body */
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* Adding styles to the aside and filter form */
+input[type=text] {
+  width: 100%;
+}
+
+input[type=checkbox] {
+  transform: scale(1);
+}
+
+input[type=radio] {
+  transform: scale(1);
+}
+
+.button {
+  text-align: center;
+}
+
+#form {
+  width: 50%;
+  text-align: center;
+}
+
+.buttonHolder{ text-align: center; }
+
+/* set map, body, and html to 100% of the screen size */
+#map,
+body,
+html {
+  height: 90%;
+  width: 90%;
+}
+
+#map{
+  margin-top:10;
+  margin-left:10;
+  margin-top:10;
+  margin-right:10;
+  padding:10;
+}
+
+/* Code provided by codepen.io for The Great Fall - https://codepen.io/cjgammon/pen/djcko */
+/* @import url(https://fonts.googleapis.com/css?family=Lobster);
+body {
+    background-color: #000;
+    overflow: hidden;
+}
+
+#myCanvas {
+    background-color: #001530;
+    display: block;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+} */
