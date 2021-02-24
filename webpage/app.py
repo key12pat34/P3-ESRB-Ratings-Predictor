@@ -39,7 +39,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 @app.route("/")
 def homepage():
-    return render_template("homepage.html")
+    return render_template("home.html")
 
 # Query the database and send the jsonified results
 @app.route("/map.html")

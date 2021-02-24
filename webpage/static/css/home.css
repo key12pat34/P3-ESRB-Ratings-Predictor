@@ -1,0 +1,23 @@
+body h1{
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+body h1:after{
+  content:' ';
+  display:block;
+  border:2px solid grey;
+  } 
+  
+p{
+  padding-left: 10px;
+  }
+
+h6{
+  padding-left: 10px;
+  }
+
+.form-check{
+  padding-left: 10px;
+  }

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <title>ESRB Rating Predictor</title>
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+        <!-- Our CSS -->
+        <link rel="stylesheet" type="text/css" href="/static/css/home.css">        
+    </head>
+
+    <body>
+        <div>
+            <h1>Welcome to ESRB Rating Predictor</h1>
+            <p>Select different rating categories for a video game and predict what their ESRB 
+                Rating will be.</p>
+            <br>
+            <div class='tableauPlaceholder' id='viz1614133342716' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ES&#47;ESRBRatingTableauStory-GTFinalProject&#47;ESRBRatingStory&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ESRBRatingTableauStory-GTFinalProject&#47;ESRBRatingStory' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ES&#47;ESRBRatingTableauStory-GTFinalProject&#47;ESRBRatingStory&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1614133342716');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+            <h1>Project Summary</h1>
+            <p>We used a classification model to try to accurately predict the ESRB ratings for 
+                games that have recently come out and are not listed in our data set. We used 
+                Python/Pandas to clean the data we got from Kaggle, loaded it into an AWS s3 bucket, 
+                and then trained our model based on the dataset. The dataset only contained ESRB
+                ratings for PS4 and Xbox One Games so we also tested the model to see how accurately
+                it could predict game ratings for games based on other platforms. 
+                </p>
+            <br>
+            <p>
+            Research Questions to Answer:
+            <br>
+            How accurate is our model at predicting the ESRB for newer video games that aren’t 
+            in our original dataset?
+            <br>
+            What is the reason for any inaccuracy in the predictions?
+            <br>
+            Can this model be applied to games for other platforms that aren’t present in our 
+            original dataset?
+            </p>  
+        </div>
+    
+        <div>
+            <h1>Predict Your Rating!</h1></div>
+            <p>Use the checkboxes below to select rating criteria for a given videogame. 
+            Our model will predict the rating based on the categories selected.</p>
+            <h6>Rating Categories:</h6>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Alcohol Reference">
+                <label class="form-check-label" for="Alcohol Reference">
+                  Alcohol Reference
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Animated Blood">
+                <label class="form-check-label" for="Animated Blood">
+                  Animated Blood
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Blood">
+                <label class="form-check-label" for="Blood">
+                  Blood
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Blood & Gore">
+                <label class="form-check-label" for="Blood & Gore">
+                  Blood & Gore
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Cartoon Violence">
+                <label class="form-check-label" for="Cartoon Violence">
+                    Cartoon Violence
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Crude Humor">
+                <label class="form-check-label" for="Crude Humor">
+                    Crude Humor
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Crude Humor">
+                <label class="form-check-label" for="Crude Humor">
+                    Crude Humor
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Drug Reference">
+                <label class="form-check-label" for="Drug Reference">
+                    Drug Reference
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Fantasy Violence">
+                <label class="form-check-label" for="Fantasy Violence">
+                    Fantasy Violence
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Intense Violence">
+                <label class="form-check-label" for="Intense Violence">
+                    Intense Violence
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Language">
+                <label class="form-check-label" for="Language">
+                    Language
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Lyrics">
+                <label class="form-check-label" for="Lyrics">
+                    Lyrics
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Mature Humor">
+                <label class="form-check-label" for="Mature Humor">
+                    Mature Humor
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Mature Humor">
+                <label class="form-check-label" for="Mature Humor">
+                    Mature Humor
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Mild Blood">
+                <label class="form-check-label" for="Mild Blood">
+                    Mild Blood
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Mild Cartoon Violence">
+                <label class="form-check-label" for="Mild Cartoon Violence">
+                    Mild Cartoon Violence
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Mild Fantasy Violence">
+                <label class="form-check-label" for="Mild Fantasy Violence">
+                    Mild Fantasy Violence
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Mild Language">
+                <label class="form-check-label" for="Mild Language">
+                    Mild Language
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Mild Lyrics">
+                <label class="form-check-label" for="Mild Lyrics">
+                    Mild Lyrics
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Mild Suggestive Themes">
+                <label class="form-check-label" for="Mild Suggestive Themes">
+                    Mild Suggestive Themes
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Mild Violence">
+                <label class="form-check-label" for="Mild Violence">
+                    Mild Violence
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="No Descriptors">
+                <label class="form-check-label" for="No Descriptors">
+                    No Descriptors
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Nudity">
+                <label class="form-check-label" for="Nudity">
+                    Nudity
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Partial Nudity">
+                <label class="form-check-label" for="Partial Nudity">
+                    Partial Nudity
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Sexual Content">
+                <label class="form-check-label" for="Sexual Content">
+                    Sexual Content
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Sexual Themes">
+                <label class="form-check-label" for="Sexual Themes">
+                    Sexual Themes
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Simulated Gambling">
+                <label class="form-check-label" for="Simulated Gambling">
+                    Simulated Gambling
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Strong Language">
+                <label class="form-check-label" for="Strong Language">
+                    Strong Language
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Strong Sexual Content">
+                <label class="form-check-label" for="Strong Sexual Content">
+                    Strong Sexual Content
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Suggestive Themes">
+                <label class="form-check-label" for="Suggestive Themes">
+                    Suggestive Themes
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Use of Alcohol">
+                <label class="form-check-label" for="Use of Alcohol">
+                    Use of Alcohol
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Use of Drugs & Alcohol">
+                <label class="form-check-label" for="Use of Drugs & Alcohol">
+                    Use of Drugs & Alcohol
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="Violence">
+                <label class="form-check-label" for="Violence">
+                    Violence
+                </label>
+              </div>
+        </div>     
+
+    <!-- Javascript -->
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <script type= "text/javascript" src="/static/js/app.js"></script> 
+    </body>
+</html>
