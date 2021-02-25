@@ -17,4 +17,4 @@ Final Project Schedule:
 
 
 
-https://key12pat34.github.io/Leaflet-Homework---hw-17/Project/v1.3/Leaflet-Step-1/Homepage.html
+https://key12pat34.github.io/GT-FinalProject/webpage/templates/home.html 
