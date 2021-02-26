@@ -1,3 +1,7 @@
+body{
+  padding-bottom: 20px;
+}
+
 body h1{
   text-align: center;
   padding-top: 20px;
@@ -19,5 +23,27 @@ h6{
   }
 
 .form-check{
-  padding-left: 10px;
+  padding-left: 50px;
   }
+
+#button{
+  padding-left: 30px;
+  }
+
+#tabcenter{
+  margin-left: 10%;
+}
+
+#myContainer {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+
+#myAnimation {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
