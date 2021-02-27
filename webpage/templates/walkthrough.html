@@ -13,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="/static/css/home.css">        
     </head>
 
-    <body>
+    <body class="bg-dark">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
           <a class="navbar-brand">
           <img src="/static/gamelogo.jpg" width="100" height="80" alt="">
@@ -41,10 +41,103 @@
       </nav>  
       <div>
             <h1>Machine Learning Walkthrough</h1>
-            <!-- <p>Select different rating categories for a video game and predict what their ESRB 
-                Rating will be.</p> -->
+            <div id=walkthrough>
+            <h6><p>We started first with loading our sample ESRB data obtained from Kaggle after loading our needed dependencies.(<a href=https://www.kaggle.com/imohtn/video-games-rating-by-esrb>https://www.kaggle.com/imohtn/video-games-rating-by-esrb</a>). We were provided two files, test_esrb.csv and video_games_esrb_rating.csv. These two files had different titles and we needed to make sure that they were consistently formatted before concatenating.</p>
             <br>
-      </div>
+            <img src="/static/DataCleaning1.png" width="850px" height="150%">
+            <br>
+            <br>
+            <p>We concatenated the two CSVs into a new dataframe that we'd use for our training. </p>
+            <br>
+            <img src="/static/DataCleaning2.png" width="850px" height="150%">
+            <br>
+            <br>
+            <p>With the newly formed dataframe we were free to make the single point of cleaning we needed to do in renaming the "strong_janguage" column too read appropriately as "strong_language".</p>
+            <br>
+            <img src="/static/DataCleaning3.png" width="850px" height="150%">
+            <br>
+            <br>
+            <p>With the cleaning complete, we are ready to start loading our data for training. We chose to do a Linear SVC classification model for this problem following the flowchart on <a href=https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html>Scikit-learn.org</a>. Our target output was the ESRB rating, so we needed to define this as the y_train variable. Following this we split the rest of the columnns into training and test groups. Then we proceeded to fit the data on the Linear SVC model. We tested the model for accuracy and then generated a classification report. The precision numbers had gaps, we feel as though we could've generated higher precision numbers if we trained with more data.</p>
+            <br>
+            <img src="/static/Training1.png" width="850px" height="150%">
+            <br>
+            <br>
+            <p>Now we needed to save the training to a model so we could start testing our manual inputs.</p>
+            <br>
+            <img src="/static/SaveTrain.png" width="850px" height="150%">
+            <br>
+            <br>
+            <p>In our new notebook, we needed to start by loading the model we just saved in the training notebook.</p>
+            <br>
+            <img src="/static/ManualPredictor1.png" width="850px" height="150%">
+            <br>
+            <br>
+            <p>With the model loaded, we first defined each rating category as a variable and then wrote our our predict on the model as a function. Because our sample data was not current with newly released titles, we isolated 10 titles to test with. </p>
+            <br>
+            <img src="/static/ManualPredictor2.png" width="850px" height="150%">
+            <br>
+            <br>
+            <p>These 10 titles had varying ESRB ratings. Our 10 predictions yielded a 90% accuracy when compared to the official ESRB ratings provided for those titles. The one that was innacurate was an ET title being rated as a T title. We believe this partly has to do with ET titles being the samllest part of our sample pool and believe if we had more sample data to begin with our model would be more accurate.</p></h6>
+        <h1>Prediction Results</h1>
+        <div class="center">
+        <table style="width:1000px" class="gamestable table-hover table-dark">
+        <tr>
+            <th>Title</th>
+            <th>Actual ESRB Rating</th>
+            <th>Predicted Rating</th>
+        </tr>
+        <tr>
+            <td>Same_and_Max:_Save_The_World (Nintendo Switch)</td>
+            <td>T</td>
+            <td>T</td>
+        </tr>
+        <tr>
+            <td>The King of Fighters 2002 Unlimited Match (PlayStation 4)</td>
+            <td>T</td>
+            <td>T</td>
+        </tr>
+        <tr>
+            <td>Persona 5 Strikers (Windows PC, PlayStation 4, Nintendo Switch)</td>
+            <td>M</td>
+            <td>M</td>
+        </tr>
+        <tr class="bg-danger">
+            <td>Reigns (Stadia)</td>
+            <td>ET</td>
+            <td>T</td>
+        </tr>
+        <tr>
+            <td>R.B.I. Baseball 21 (Windows PC, PlayStation 4, Nintendo Switch, Xbox One, Xbox Series)</td>
+            <td>E</td>
+            <td>E</td>
+        </tr>
+        <tr>
+            <td>Blue Fire (PlayStation 4, Stadia, Nintendo Switch)</td>
+            <td>ET</td>
+            <td>ET</td>
+        </tr>
+        <tr>
+            <td>Terminator: Resistance Enhanced (PlayStation 5)</td>
+            <td>M</td>
+            <td>M</td>
+        </tr>
+        <tr>
+            <td>Hotshot Racing (PlayStation 4, Nintendo Switch)</td>
+            <td>ET</td>
+            <td>ET</td>
+        </tr>
+        <tr>
+            <td>Subnautica (Nintendo-Switch)</td>
+            <td>ET</td>
+            <td>ET</td>
+        </tr>
+        <tr>
+            <td>Code: Realize ~Wintertide Miracles~ (Nintendo Switch)</td>
+            <td>T</td>
+            <td>T</td>
+        </tr></table>
+        </div></div>
+    </div>
       <div>
       </div>
     <!-- Javascript -->

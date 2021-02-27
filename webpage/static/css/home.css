@@ -6,6 +6,23 @@ body h1{
   text-align: center;
   padding-top: 20px;
   padding-bottom: 50px;
+  color:white
+}
+
+body h6{
+  text-align: left;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  margin-left: 20%;
+  margin-right: 20%;
+  color:white
+}
+
+body h5{
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 25px;
+  color:white
 }
 
 body h1:after{
@@ -15,15 +32,17 @@ body h1:after{
   } 
   
 p{
-  padding-left: 10px;
+  margin-left: 10px;
+  color:white
   }
 
-h6{
+/* h6{
   padding-left: 10px;
-  }
+  } */
 
 .form-check{
   padding-left: 50px;
+  color:white
   }
 
 #button{
@@ -31,7 +50,13 @@ h6{
   }
 
 #tabcenter{
-  margin-left: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.gamestable {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #myContainer {
