@@ -1,5 +1,4 @@
 # import necessary libraries
-# from models import create_classes
 import os
 from flask import (
     Flask,
@@ -7,33 +6,13 @@ from flask import (
     jsonify,
     request,
     redirect)
-import psycopg2
-import sys
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
 import numpy as np
+import joblib
 
-#################################################
-# Database Setup
-#################################################
-# engine = create_engine("postgres://bwrtaugijyfgyd:2a00951144d14d957fe21c02613f65b2083e6f64f7cc32c28d784c5e8b8960dc@ec2-54-205-187-125.compute-1.amazonaws.com:5432/d8uhbccr3c2pvb")
+# Load ML model
+model = joblib.load(open('./machine_learning/joblib_model.pk1', 'rb')) 
 
-# # reflect an existing database into a new model
-# Base = automap_base()
-# # reflect the tables
-# Base.prepare(engine, reflect=True)
-
-# # Save reference to the table
-# School = Base.classes.schooltable
-
-# # Marker Table
-# Marker = Base.classes.marker_data
-
-#################################################
 # Flask Setup
-#################################################
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
@@ -46,8 +25,35 @@ def analysis():
     return render_template("analysis.html")
 
 @app.route("/predictor.html")
-def predict():
+def predictor():
     return render_template("predictor.html")
+
+# Bind predict function to URL
+@app.route('/predict', methods =['POST'])
+def predict():
+    
+    # Put all form entries values in a list 
+    features = [float(i) for i in request.form.values()]
+    # Convert features to array
+    array_features = [np.array(features)]
+    # Predict features
+    prediction = model.predict(array_features)
+    
+    output = prediction
+    
+    # Check the output values and retrive the result with html tag based on the value
+    if output == 'E':
+        return render_template('predictor.html', 
+                               result = 'This game is rated E')
+    elif output == 'ET':
+        return render_template('predictor.html', 
+                               result = 'This game is rated ET')
+    elif output == 'T':
+        return render_template('predictor.html', 
+                               result = 'This game is rated T')                           
+    else:
+        return render_template('predictor.html', 
+                               result = 'This game is rated M')
 
 @app.route("/walkthrough.html")
 def walkthrough():
