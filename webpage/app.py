@@ -44,16 +44,16 @@ def predict():
     # Check the output values and retrive the result with html tag based on the value
     if output == 'E':
         return render_template('predictor.html', 
-                               result = 'This game is rated E')
+                               result = 'The predicted rating is: E')
     elif output == 'ET':
         return render_template('predictor.html', 
-                               result = 'This game is rated ET')
+                               result = 'The predicted rating is: ET')
     elif output == 'T':
         return render_template('predictor.html', 
-                               result = 'This game is rated T')                           
+                               result = 'The predicted rating is: T')                           
     else:
         return render_template('predictor.html', 
-                               result = 'This game is rated M')
+                               result = 'The predicted rating is: M')
 
 @app.route("/walkthrough.html")
 def walkthrough():

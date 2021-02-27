@@ -36,19 +36,13 @@
 		</nav>    
 		<div>
             <h1>Predict Your Rating!</h1></div>
-            <p>Use the checkboxes below to select rating criteria for a given videogame. 
-            Our model will predict the rating based on the categories selected.</p>
+            <p>Use dropdowns to select rating criteria for any game. Click result to show 
+				predicted rating based on the model. Scroll down to see final prediction.</p>
+				<br>
 			<!--Form-->
 			<form action = "{{url_for('predict')}}" method ="POST" >
-				<fieldset>
-				<legend>Predict Ratings Form</legend><br>
-				  
+				<fieldset>				  
 					<div class="form-group  row">
-					  <!-- <div class="form-group  row">
-						<div class="col-sm-3">
-							<label for="Title">Title</label>
-							<input type="text" class="form-control" id="Title" name="Title" required>
-						</div> -->
 						<div class="col-sm">
 							<label for="Alcohol Reference">Alcohol Reference</label>
 							<select class="form-control" id="Alcohol Reference"  name="Alcohol Reference" required>
@@ -286,7 +280,7 @@
 					  
 					  <!--Prediction Result-->
 					  <div id ="result">
-							<strong style="color:red">{{result}}</strong>
+							<strong style="color:rgb(15, 173, 10)">{{result}}</strong>
 					 </div>
 				     </div>
 			 </fieldset>
