@@ -51,9 +51,14 @@
             <img src="/static/DataCleaning2.png" width="850px" height="150%">
             <br>
             <br>
-            <p>With the newly formed dataframe we were free to make the single point of cleaning we needed to do in renaming the "strong_janguage" column to read appropriately as "strong_language".</p>
+            <p>With the newly formed dataframe we were free to start the cleaning we needed to do. First, we started with renaming the "strong_janguage" column to read appropriately as "strong_language".</p>
             <br>
             <img src="/static/DataCleaning3.png" width="850px" height="150%">
+            <br>
+            <br>
+            <p>Following this, we dropped the unnecessary columns for our data training.</p>
+            <br>
+            <img src="/static/dropcolumn.png" width="850px" height="150%">
             <br>
             <br>
             <p>With the cleaning complete, we are ready to start loading our data for training. We chose to do a Linear SVC classification model for this problem following the flowchart on <a href=https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html>Scikit-learn.org</a>. Our target output was the ESRB rating, so we needed to define this as the y_train variable. Following this we split the rest of the columns  into training and test groups. Then we proceeded to fit the data on the Linear SVC model. We tested the model for accuracy and then generated a classification report. The precision numbers had gaps, we feel as though we could've generated higher precision numbers if we trained with more data.</p>
