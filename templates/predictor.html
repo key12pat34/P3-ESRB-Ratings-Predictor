@@ -36,12 +36,18 @@
 		</nav>    
 		<div>
             <h1>Predict Your Rating!</h1></div>
-            <p>Use dropdowns to select rating criteria for any game. Click result to show 
-				predicted rating based on the model. Scroll down to see final prediction.</p>
-				<br>
+            <h6><p>Use dropdowns to select rating criteria for any game. Click result to show 
+				predicted rating based on the model.</p></h6>
 			<!--Form-->
+
 			<form action = "{{url_for('predict')}}" method ="POST" >
-				<fieldset>				  
+				<fieldset>	
+					<!--Prediction Result-->
+					<div id ="result">
+						<strong style="color:rgb(15, 173, 10)">{{result}}</strong>
+				 	</div>		
+				 	<br>
+					<br>	  
 					<div class="form-group  row">
 						<div class="col-sm">
 							<label for="Alcohol Reference">Alcohol Reference</label>
@@ -277,11 +283,6 @@
 					  <div class="form-group">
 						<input class="btn btn-primary" type="submit" value="Result">
 					  </div>
-					  
-					  <!--Prediction Result-->
-					  <div id ="result">
-							<strong style="color:rgb(15, 173, 10)">{{result}}</strong>
-					 </div>
 				     </div>
 			 </fieldset>
 			</form>
